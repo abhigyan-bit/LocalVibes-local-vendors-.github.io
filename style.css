@@ -1,0 +1,39 @@
+
+.flex-box{
+    display:flex;
+    justify-content: space-around;
+    align-items:top;
+    height:55px;
+    width:100%;
+    gap:5px;
+}
+
+.home{
+    height:20px;
+    width:auto;
+    font-size:15px;
+    font-style: normal;
+    background-color:rgb(77, 2, 189);
+    padding:5px;
+    border-radius:20px;
+}
+
+.nav{
+    color:aliceblue;
+    text-decoration:none;
+}
+
+.flex-box2{
+    display:flex;
+    justify-content:space-around;
+    height:300px;
+    width:100%; 
+    background-color:rgb(223, 186, 241);
+}
+
+.xyz{
+    height: 280px;
+    width: 500px;
+    padding: 5px;
+    text-align: center;
+}
