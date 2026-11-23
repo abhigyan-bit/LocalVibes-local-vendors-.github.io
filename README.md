@@ -1,1 +1,1 @@
-# LocalVibes-local-vendors-.github.io
+# LocalVibes- website for local vendors-.github.io
