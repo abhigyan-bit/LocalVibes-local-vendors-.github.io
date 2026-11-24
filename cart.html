@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LocalVibe - My Cart</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: #faf7ff;
+    color: #333;
+}
+
+header {
+    background: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo, h1, h2 {
+    color: #7546a8;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #7546a8;
+}
+
+h1 {
+    text-align: center;
+    margin: 40px;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.products, .summary {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.product {
+    display: flex;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.product img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+button {
+    background: #7546a8;
+    color: white;
+    border: none;
+    padding: 8px 13px;
+    margin: 8px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove {
+    background: #e05252;
+}
+
+.summary p, .summary h3 {
+    margin: 20px 0;
+}
+
+.summary button {
+    width: 100%;
+    padding: 13px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+@media(max-width:700px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2 class="logo">LocalVibe.</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">My Cart 🛒</a>
+    </nav>
+</header>
+
+<h1>My Shopping Cart</h1>
+
+<div class="container">
+
+    <div class="products">
+        <h2>Shopping Items</h2>
+        <div id="cart-items"></div>
+    </div>
+
+    <div class="summary">
+        <h2>Order Summary</h2>
+        <p>Subtotal: ₹<span id="subtotal">0</span></p>
+        <p>Delivery: ₹<span id="delivery">0</span></p>
+        <h3>Total: ₹<span id="total">0</span></h3>
+
+        <button onclick="checkout()">Proceed to Checkout</button>
+        <a href="index.html">Continue Shopping</a>
+    </div>
+
+</div>
+
+<footer>© 2026 LocalVibe. Supporting Local Sellers ❤️</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function displayCart() {
+    let box = document.getElementById("cart-items");
+    let subtotal = 0;
+    box.innerHTML = "";
+
+    if (cart.length === 0)
+        box.innerHTML = "<p>Your cart is empty!</p>";
+
+    cart.forEach((item, i) => {
+        subtotal += item.price * item.quantity;
+
+        box.innerHTML += `
+        <div class="product">
+            <img src="${item.image || 'https://placehold.co/90x90'}">
+            <div>
+                <h3>${item.name}</h3>
+                <p>₹${item.price}</p>
+                <button onclick="changeQty(${i},-1)">-</button>
+                ${item.quantity}
+                <button onclick="changeQty(${i},1)">+</button>
+                <button class="remove" onclick="removeItem(${i})">Remove</button>
+            </div>
+        </div>`;
+    });
+
+    let delivery = cart.length ? 50 : 0;
+
+    document.getElementById("subtotal").innerText = subtotal;
+    document.getElementById("delivery").innerText = delivery;
+    document.getElementById("total").innerText = subtotal + delivery;
+}
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+
+function changeQty(i, n) {
+    cart[i].quantity += n;
+    if (cart[i].quantity <= 0) cart.splice(i, 1);
+    saveCart();
+}
+
+function removeItem(i) {
+    cart.splice(i, 1);
+    saveCart();
+}
+
+function checkout() {
+    alert(cart.length ? "Thank you for shopping!" : "Your cart is empty!");
+}
+
+displayCart();
+</script>
+
+</body>
+</html>
