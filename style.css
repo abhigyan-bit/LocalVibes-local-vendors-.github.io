@@ -92,3 +92,269 @@
     display:block;
     margin:0 auto;
 }
+
+.auth-modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-modal-overlay.active {
+  display: flex;
+}
+
+.auth-modal-box {
+  background: #ffffff;
+  width: 90%;
+  max-width: 390px;
+  padding: 30px 28px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.auth-modal-box h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: #222;
+}
+
+.modal-subtitle {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.input-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #c588bd; 
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 11px;
+  background-color: #c588bd; 
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.auth-submit-btn:hover {
+  opacity: 0.92;
+}
+
+.modal-footer-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13.5px;
+  color: #555;
+}
+
+.modal-footer-text a {
+  color: #e65c2e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.modal-footer-text a:hover {
+  text-decoration: underline;
+}
+
+.feedback-banner {
+  display: none;
+  background-color: #e7f6ec;
+  color: #1e6b38;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 14px;
+  border: 1px solid #b8e2c6;
+}
+
+.forgot-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.forgot-overlay.active {
+  display: flex;
+}
+
+.forgot-box {
+  background: #ffffff;
+  width: 90%;
+  max-width: 380px;
+  padding: 30px 26px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: fadePop 0.2s ease-out;
+}
+
+@keyframes fadePop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.forgot-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.forgot-close:hover {
+  color: #000;
+}
+
+.forgot-box h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: #222;
+}
+
+.forgot-subtitle {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.forgot-input-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.forgot-input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.forgot-input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.forgot-input-group input:focus {
+  outline: none;
+  border-color: #e65c2e;
+}
+
+.forgot-submit-btn {
+  width: 100%;
+  padding: 11px;
+  background-color: #e65c2e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forgot-submit-btn:hover {
+  opacity: 0.92;
+}
+
+.forgot-footer {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13.5px;
+  color: #555;
+}
+
+.forgot-footer a {
+  color: #e65c2e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forgot-footer a:hover {
+  text-decoration: underline;
+}
+
+.reset-success-msg {
+  display: none;
+  background-color: #e7f6ec;
+  color: #1e6b38;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 14px;
+  border: 1px solid #b8e2c6;
+}
