@@ -1,9 +1,6 @@
-// Customer account, sign-in and profile page.
-
 const signupForm = document.getElementById("signup-form");
 const loginForm = document.getElementById("loginForm");
 
-// Create a customer account.
 if (signupForm) {
     signupForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -41,7 +38,6 @@ if (signupForm) {
     });
 }
 
-// Customer sign-in.
 if (loginForm) {
     loginForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -64,7 +60,6 @@ if (loginForm) {
     });
 }
 
-// Show the details of the signed-in customer.
 const profilePage = document.getElementById("sideName");
 
 if (profilePage) {
@@ -106,7 +101,6 @@ if (profilePage) {
     }
 }
  
-// Vendor registration.
 const vendorSignupForm = document.getElementById("vendorSignupForm");
 
 if (vendorSignupForm) {
@@ -140,7 +134,6 @@ if (vendorSignupForm) {
     });
 }
 
-// Vendor sign-in.
 const vendorLoginForm = document.getElementById("vendorLoginForm");
 
 if (vendorLoginForm) {
