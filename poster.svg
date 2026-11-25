@@ -5,11 +5,13 @@
 </defs>
 <rect width="1200" height="300" rx="24" fill="url(#bg)"/>
 <rect x="8" y="8" width="1184" height="284" rx="20" fill="none" stroke="#5924c8" stroke-width="7"/>
-<circle cx="150" cy="150" r="100" fill="#f8edff"/>
-<path d="M95 125h110l12 92H83z" fill="url(#purple)"/>
-<path d="M119 127v-20a31 31 0 0 1 62 0v20" fill="none" stroke="#5924c8" stroke-width="13" stroke-linecap="round"/>
-<path d="M150 151a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0 33v17" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
-<path d="M52 205c30 24 66 35 111 34" fill="none" stroke="#9b65dc" stroke-width="8" stroke-linecap="round"/>
+<circle cx="150" cy="150" r="104" fill="#f8edff"/>
+<!-- Exact LocalVibe bag-and-heart mark from icon.svg -->
+<g transform="translate(48 43) scale(3.2)">
+ <path d="M13 23h38l4 34H9l4-34Z" fill="url(#purple)"/>
+ <path d="M22 23v-7a10 10 0 0 1 20 0v7" fill="none" stroke="#7132c8" stroke-width="5" stroke-linecap="round"/>
+ <path d="M32 47s-12-7-12-15a7 7 0 0 1 12-4 7 7 0 0 1 12 4c0 8-12 15-12 15Z" fill="white"/>
+</g>
 <text x="300" y="158" font-family="Georgia,serif" font-size="100" font-weight="700" fill="#762080">Local<tspan fill="#5924c8">Vibe</tspan></text>
 <text x="310" y="215" font-family="Georgia,serif" font-size="29" letter-spacing="1.5" fill="#3d2358">SHOP LOCAL  •  SUPPORT SMALL  •  GROW TOGETHER</text>
 <path d="M1015 70l22-18m-8 39 29-3m-44 24 21 17" stroke="#6c32c9" stroke-width="9" stroke-linecap="round"/>
