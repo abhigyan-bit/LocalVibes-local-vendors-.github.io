@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LocalVibe - Order Page</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h2>LocalVibe.</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">My Cart </a>
+        </nav>
+    </header>
+
+    <!-- Page Heading -->
+    <h1>Place Your Order</h1>
+    <p>Fill in your details to complete your purchase.</p>
+
+    <!-- Customer Information -->
+    <section>
+        <h2>Customer Information</h2>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter phone number" required>
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter email address" required>
+
+            <h2>Delivery Address</h2>
+
+            <label>House / Street Address</label>
+            <textarea placeholder="Enter your full address" required></textarea>
+
+            <label>City</label>
+            <input type="text" placeholder="Enter city" required>
+
+            <label>State</label>
+            <input type="text" placeholder="Enter state" required>
+
+            <label>PIN Code</label>
+            <input type="text" placeholder="Enter PIN code" required>
+
+            <h2>Payment Details</h2>
+
+            <label>
+                <input type="radio" name="payment" value="COD" required>
+                Cash on Delivery
+            </label>
+
+            <br>
+
+            <label>
+                <input type="radio" name="payment" value="Online">
+                Online Payment
+            </label>
+
+            <br><br>
+
+            <button type="submit">Place Order</button>
+
+        </form>
+    </section>
+
+    <!-- Order Summary -->
+    <section>
+        <h2>Order Summary</h2>
+
+        <p>Product Name: Your Selected Product</p>
+        <p>Subtotal: ₹0</p>
+        <p>Delivery Charges: ₹50</p>
+
+        <h3>Total Amount: ₹50</h3>
+
+        <a href="cart.html">Back to Cart</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 LocalVibe. Supporting Local Sellers</p>
+    </footer>
+
+</body>
+</html>
