@@ -561,3 +561,42 @@ body { margin: 0; }
     }
     .products { margin-top: 22px; }
 }
+
+
+/* Become a Vendor dropdown menu */
+.vendor-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.vendor-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 175px;
+    background: white;
+    border: 1px solid #dfba f1;
+    border-radius: 8px;
+    padding: 6px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.vendor-menu:hover .vendor-dropdown,
+.vendor-menu:focus-within .vendor-dropdown {
+    display: block;
+}
+
+.vendor-dropdown a {
+    display: block;
+    padding: 10px;
+    color: rgb(77, 2, 189);
+    text-decoration: none;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.vendor-dropdown a:hover {
+    background: rgb(223, 186, 241);
+}
