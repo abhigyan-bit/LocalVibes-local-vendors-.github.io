@@ -101,6 +101,7 @@ if (profilePage) {
     }
 }
  
+
 const vendorSignupForm = document.getElementById("vendorSignupForm");
 
 if (vendorSignupForm) {
@@ -110,7 +111,7 @@ if (vendorSignupForm) {
         const vendor = {
             storeName: document.getElementById("storeName").value.trim(),
             name: document.getElementById("vendorName").value.trim(),
-            email: document.getElementById("newVendorEmail").value.trim(),
+            email: document.getElementById("newVendorEmail").value.trim().toLowerCase(),
             phone: document.getElementById("vendorPhone").value.trim(),
             location: document.getElementById("vendorLocation").value.trim(),
             password: document.getElementById("newVendorPassword").value
@@ -118,19 +119,21 @@ if (vendorSignupForm) {
 
         const vendors = JSON.parse(localStorage.getItem("localVibeVendors")) || [];
         const alreadyRegistered = vendors.some(function(item) {
-            return item.email === vendor.email;
+            return item.email.toLowerCase() === vendor.email;
         });
 
         if (alreadyRegistered) {
-            alert("A vendor account with this email already exists.");
+            alert("This email is already registered. Please sign in.");
+            window.location.href = "vendor_signin.html";
             return;
         }
 
         vendors.push(vendor);
         localStorage.setItem("localVibeVendors", JSON.stringify(vendors));
 
-        alert("Vendor account created. Please sign in.");
-        window.location.href = "vendor_signin.html";
+        // Sign in the new vendor and open their own dashboard.
+        sessionStorage.setItem("localVibeVendor", JSON.stringify(vendor));
+        window.location.href = "vendorsdashboard.html";
     });
 }
 
@@ -140,16 +143,16 @@ if (vendorLoginForm) {
     vendorLoginForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        const email = document.getElementById("vendorEmail").value.trim();
+        const email = document.getElementById("vendorEmail").value.trim().toLowerCase();
         const password = document.getElementById("vendorPassword").value;
         const vendors = JSON.parse(localStorage.getItem("localVibeVendors")) || [];
 
         const vendor = vendors.find(function(item) {
-            return item.email === email && item.password === password;
+            return item.email.toLowerCase() === email && item.password === password;
         });
 
         if (!vendor) {
-            alert("Vendor account not found. Please register first.");
+            alert("Vendor account not found or password is incorrect. Please sign up first.");
             return;
         }
 
@@ -158,12 +161,25 @@ if (vendorLoginForm) {
     });
 }
 
-const vendorHeading = document.getElementById("vendorWelcome");
-if (vendorHeading) {
+// Protect the dashboard and show only the signed-in vendor's details.
+const vendorDashboard = document.getElementById("vendorDashboard");
+
+if (vendorDashboard) {
     const activeVendor = JSON.parse(sessionStorage.getItem("localVibeVendor"));
+
     if (!activeVendor) {
-        window.location.href = "vendor_signin.html";
+        window.location.replace("vendor_signin.html");
     } else {
-        vendorHeading.textContent = "Welcome, " + activeVendor.storeName + "!";
+        document.getElementById("vendorWelcome").textContent = "Welcome, " + activeVendor.name + "!";
+        document.getElementById("vendorStoreName").textContent = activeVendor.storeName;
+        document.getElementById("vendorOwnerName").textContent = activeVendor.name;
+        document.getElementById("vendorEmailDetail").textContent = activeVendor.email;
+        document.getElementById("vendorPhoneDetail").textContent = activeVendor.phone;
+        document.getElementById("vendorLocationDetail").textContent = activeVendor.location;
+
+        document.getElementById("vendorLogout").addEventListener("click", function() {
+            sessionStorage.removeItem("localVibeVendor");
+            window.location.href = "index.html";
+        });
     }
 }
